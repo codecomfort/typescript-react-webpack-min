@@ -17,11 +17,7 @@ module.exports = {
   module: {
     rules: [
       // 正規表現 tsx? で ts または tsx にマッチ
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-
-      // ここの意味が不明。
-      // コメントアウトしても特に出力に違いはない
-      { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
     ]
   } ,
 
