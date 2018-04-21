@@ -2,6 +2,7 @@
    -D でローカルインストールしておく
  */
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -22,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       // 正規表現 tsx? で ts または tsx にマッチ
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader"}
     ]
   },
 
@@ -33,10 +34,6 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
 
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    new UglifyJsPlugin(),
   ]
 }
